@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger - Merge PDFs with Style</title>
+    <meta name="description"
+        content="A modern, beautiful PDF merger tool to combine multiple PDFs with page selection and reorder functionality">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-gradient"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="title-icon">📄</span>
+                PDF Merger
+            </h1>
+            <p class="subtitle">Merge multiple PDFs with precision and style</p>
+        </header>
+
+        <main class="main-content">
+            <!-- PDF Upload Section -->
+            <div class="pdf-section" id="pdf-section">
+                <!-- PDF cards will be dynamically added here -->
+            </div>
+
+            <!-- Add PDF Button -->
+            <div class="add-pdf-container">
+                <button class="btn-add-pdf" id="add-pdf-btn">
+                    <span class="add-icon">+</span>
+                    Add Another PDF
+                </button>
+            </div>
+
+            <!-- Merge Controls -->
+            <div class="merge-section" id="merge-section" style="display: none;">
+                <div class="merge-info">
+                    <p class="merge-text" id="merge-text">Ready to merge</p>
+                </div>
+                <button class="btn-merge" id="merge-btn">
+                    <span class="merge-icon">✨</span>
+                    Merge PDFs
+                </button>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="progress-container" id="progress-container" style="display: none;">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p class="progress-text" id="progress-text">Processing...</p>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>All processing happens in your browser. Your files never leave your device.</p>
+        </footer>
+    </div>
+
+    <!-- Load PDF.js and pdf-lib from local files -->
+    <script src="libs/pdf.min.js"></script>
+    <script src="libs/pdf-lib.min.js"></script>
+    <script>
+        // Set PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'libs/pdf.worker.min.js';
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
